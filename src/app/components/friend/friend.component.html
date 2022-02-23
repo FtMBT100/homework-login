@@ -1,0 +1,56 @@
+<div class="friend">
+  <h1>Friend Form</h1>
+  <form [formGroup]="friendForm">
+     <div>
+      Friend Name:
+      <!--<input formControlName="FriendName">-->
+      <input type="text" [ngModel]="friend.name" formControlName="FriendName" placeholder="FriendName" >
+      <!--<input [(ngModel)]="friend.name" formControlName="FriendName">-->
+    </div>
+
+    <div>
+      Email:
+      <!--<input formControlName="FriendEmail">-->
+      <input type="text" [ngModel]="friend.email" formControlName="FriendEmail" placeholder="FriendEmail" >
+      <!--<input [(ngModel)]="friend.email" formControlName="FriendEmail">-->
+    </div>
+
+    <div>
+      Age:
+      <!--<input formControlName="FriendAge">-->
+      <input type="text" [ngModel]="friend.age" formControlName="FriendAge" placeholder="FriendEmail" >
+      <!--<input [(ngModel)]="friend.age" formControlName="FriendAge">-->
+    </div>
+
+    <button (click)="changeDefaultName('CS')">Click to change the name</button>
+    <button (click)="onSubmit(friendForm)" [disabled]="friendForm.invalid">Submit to Data Model</button>
+  </form>
+
+  <p><b>Retrieve values from the form:</b><br>
+    {{friendForm.value | json}}<br>
+    {{friendForm.get('FriendName')?.value}}<br/>
+    {{friendForm.get('FriendEmail')?.value}}<br/>
+    {{friendForm.get('FriendAge')?.value}}
+  </p>
+  <p><b>Retrieve values from the data model:</b><br>
+    {{friend.name}}<br/>
+    {{friend.email}}<br/>
+    {{friend.age}}
+  </p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Age</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let f of friends">
+        <td>{{f.name}}</td>
+        <td>{{f.email}}</td>
+        <td>{{f.age}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

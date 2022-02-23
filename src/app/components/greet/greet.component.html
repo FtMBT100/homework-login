@@ -1,0 +1,8 @@
+<div>
+  <h1>Welcome to my e-Store</h1>
+  Enter Your Item: <input type="text" [(ngModel)]="item" placeholder="Item name">
+  <button (click)="searchItems()">search</button><br/>
+  Total Items found for {{searchItem}} is {{numItems}}
+  <button [disabled]="isDisabled" (click)="searchItems()">Add to Cart</button>
+  {{greet()}}
+</div>
